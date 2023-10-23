@@ -1,0 +1,54 @@
+body {
+    font-family: "Verdana";
+    background-color: lightcoral;
+}
+
+#whole-container {
+    background-color: white;
+    padding: 100px;
+    border: 30px #80223e 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;  /* Position the top of the container at the vertical center */
+    left: 50%; /* Position the left of the container at the horizontal center */
+    transform: translate(-50%, -50%);
+    text-align: center; /* Center-align the content within the whole-container */
+}
+
+#question {
+    font-size: 23px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#options {
+    margin: 0 auto; /* Center-align the options */
+    text-align: center; /* Center-align the text within the options */
+}
+
+#options button {
+    display: block; /* Display buttons as blocks */
+    background-color: white;
+    margin: 5px auto; /* Center-align buttons within options */
+    font-family: verdana;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.correct-answer {
+    border: 5px solid #9aab89;
+}
+
+#error-message {
+    font-size: 23px;
+    font-style: italic;
+    border: 2px blueviolet;
+}
+
+.error-answer {
+    border: 2px solid red;
+}
+
+.fade-out {
+    opacity: 0.5; /* Adjust the opacity level as needed */
+}

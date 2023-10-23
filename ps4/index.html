@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="whole-container">
+    <h1>Welcome to the Trivia Game!</h1>
+    <div id="question-container">
+        <p id="question"></p>
+        <div id="error-message"></div>
+        <div id="options"></div>
+    </div>
+    <div id="feedback">
+        <p>Score: <span id="score">0</span></p>
+        <p>Questions answered: <span id="questions-answered">0</span></p>
+    </div>
+</div>
+    
+
+    <script>
+        const apiUrl = "https://the-trivia-api.com/v2/questions"; // Replace with the actual API URL
+
+let questions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let questionsAnswered = 0;
+
+function shuffleOptionsArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+async function fetchQuestions() {
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        questions = data;
+        displayQuestion();
+    } catch (error) {
+        console.error("Failed to fetch questions:", error);
+        // Handle the error, e.g., by displaying an error message to the user.
+    }
+}
+
+function displayQuestion() {
+    if (currentQuestionIndex < questions.length) {
+        const question = questions[currentQuestionIndex];
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+
+        questionElement.textContent = question.question.text;
+        optionsElement.innerHTML = "";
+
+        const options = [...question.incorrectAnswers, question.correctAnswer];
+        shuffleOptionsArray(options);
+
+        options.forEach((option) => {
+            const optionButton = document.createElement("button");
+            optionButton.textContent = option;
+            optionButton.addEventListener("click", () => checkAnswer(option));
+            optionsElement.appendChild(optionButton);
+        });
+    } else {
+        alert("You've completed the trivia!");
+    }
+}
+
+function checkAnswer(selectedAnswer) {
+    const question = questions[currentQuestionIndex];
+    const options = document.querySelectorAll("#options button");
+    const errorMessage = document.getElementById("error-message");
+
+    options.forEach((option) => {
+        if (option.textContent === question.correctAnswer) {
+            option.classList.add("correct-answer"); // Apply green border to the correct answer
+            option.innerHTML = `${question.correctAnswer} ✅`; // Add a checkmark emoji
+        } else {
+            option.classList.add("fade-out"); // Apply the fade-out class to incorrect answers
+            option.style.opacity = 0.5; // Immediately reduce opacity by 50%
+        }
+    });
+
+    if (selectedAnswer === question.correctAnswer) {
+        score++;
+        errorMessage.textContent = "Good job!";
+    } else {
+        const selectedOption = Array.from(options).find((option) => option.textContent === selectedAnswer);
+        if (selectedOption) {
+            selectedOption.classList.add("error-answer"); // Apply red border to the selected incorrect answer
+        }
+        errorMessage.textContent = "Sorry, that's the wrong answer!";
+    }
+
+    questionsAnswered++;
+    updateScore();
+
+    // Clear the "Good job" message after 1 second
+    setTimeout(() => {
+        errorMessage.textContent = ""; // Clear the message
+        currentQuestionIndex++;
+        displayQuestion();
+    }, 1000);
+}
+
+
+
+
+
+
+
+function updateScore() {
+    const scoreElement = document.getElementById("score");
+    const questionsAnsweredElement = document.getElementById("questions-answered");
+
+    scoreElement.textContent = score;
+    questionsAnsweredElement.textContent = questionsAnswered;
+}
+
+// Start the game
+fetchQuestions();
+    </script>
+</body>
+</html>
+
+
