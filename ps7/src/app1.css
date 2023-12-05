@@ -1,0 +1,214 @@
+body {
+    background-color: #98E0EF;
+}
+
+.heading {
+    font-size: 45px;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
+  }
+
+
+  .pomodoro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*min-height: 100vh; */
+  }
+
+  .task-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .entertask {
+    background-color: aliceblue;
+    border: none;
+    padding: 30px;
+    width: 250px;
+    height: 30px;
+    border-radius: 50px;
+    margin-left: 5px;
+    margin-right: 50px;
+    font-size: 24px;
+  }
+
+  .entertask {
+    background-color: aliceblue;
+    border: none;
+    padding: 30px;
+    width: 250px;
+    height: 30px;
+    border-radius: 50px;
+    margin-left: 5px;
+    margin-right: 50px
+  }
+  
+  .entertask:focus {
+    font-size: 18px;
+    text-align: center;
+  }
+  .addtaskbutton {
+    border-style: solid;
+    border-color:#2019FF;
+    background-color:#2019FF;
+    padding: 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    color: white;
+  }
+
+
+.addtaskbutton:hover {
+    border-color:#44B4F4;
+    background-color:#44B4F4;
+  }
+
+.entertask:hover{
+    background-color: white;
+    border-color:ghostwhite;
+    border-style: solid;
+    border-width: 4px;
+}
+.entertask::placeholder{
+    font-size: 20px;
+    text-align: center;
+}
+
+.interval-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 40px;
+  }
+
+  .interval-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .interval-label {
+    font-size: 16px;
+  }
+  
+  .interval-input {
+    padding: 8px;
+    font-size: 16px;
+    width: 130px; /* Adjust the width as needed */
+    border-radius: 40px;
+    border-color: #9EE0F1;
+    border-style: solid;
+  }
+
+  .whiteblob {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: aliceblue;
+    width: 80%;
+    border-radius: 40px;
+    height: 40%;
+    padding-bottom: 140px;
+  }
+
+  .tasklisthead {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    
+  }
+ 
+
+.whiteblob li {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 35px; /* Adjust the font size as needed */
+    margin-left: 100px;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.whiteblob li button.start-button {
+    border: 3px solid #3BAC83;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    color: #248361;
+    font-size: 20px;
+    margin-left: 560px;
+    position: absolute;
+    right: 70px;
+    
+  }
+
+
+  .whiteblob li button.start-button:hover {
+    border: 3px solid #3BAC83;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #3BAC83;
+    color:white;
+    font-size: 20px; 
+  }
+
+
+  .whiteblob li button.remove-button {
+    margin-left: 30px; /* Adjust the margin to add space between the list item and the button */
+    border: 3px solid #9B003D;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    color:#9B003D;
+    font-size: 20px; 
+    position: absolute;
+    
+  }
+
+  .whiteblob li button.remove-button:hover {
+    border: 3px solid #9B003D;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #9B003D;
+    color:#ffffff;
+    font-size: 20px; 
+  }
+
+  .timer {
+    display: none;
+    position: absolute;
+    right: 70px;
+    padding: 20px;
+    color: black;
+    font-size: 25px;
+    margin-left: 560px;
+    top: 0;
+  }
+
+
+  .start-break{
+    border: 3px solid #1FA18F;
+    border-radius: 10px;
+    background-color: white;
+    color: #1FA18F;
+    font-size: 20px;
+    position: absolute;
+    right: 70px;
+    top:0px;
+    padding: 20px;
+  }
+
+  .start-break:hover{
+    border: 3px solid #1FA18F;
+    border-radius: 10px;
+    background-color: #1FA18F;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top:0px;
+    right: 70px;
+  }
+ 
+
+
