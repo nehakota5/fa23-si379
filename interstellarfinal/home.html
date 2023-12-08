@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interstellar</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+</head>
+<body>
+  <div class="slider-cont">
+    <div class="play-pause">
+      <button class="button" onclick="togglePlayPause()">PLAY / PAUSE </button>
+    </div>
+    <div class="slider">
+      <input type="range" min="0" max="100" value="50">
+      <progress min="0" max="100" value="50"></progress>
+    </div>
+    <div class="sliderValue">
+      <i class="fas fa-volume-up" id="volume"></i>
+    </div>
+    
+  </div>
+  <script src="../p5.min.js"></script>
+  <script src="../addons/p5.sound.js"></script>
+  <script src="script.js" defer></script> <!-- Defer the script to ensure it's executed after DOM load -->
+  <main>
+    <!-- Your main content -->
+  </main>
+</body>
+</html>
